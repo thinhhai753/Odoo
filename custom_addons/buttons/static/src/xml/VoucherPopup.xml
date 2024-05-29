@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="VoucherPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+        <div class="popup" style="max-width: 1000px;">
+            <header class="title">
+                <div style =" display:flex ; justify-content:flex-end "> 
+                    <button style ="height:40px ; width:40px ; font-size: 30px; 
+                    background-color:transparent ; font-family: MV Boli ; border:0px ;" t-on-click="trigger('close-popup')">X</button>
+                </div>
+                <h2><t t-esc="props.title"/></h2>
+            </header>
+            <main class="body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="padding: 2px 6px">Name</th>
+                            <th>Promo Code</th>
+                            <th>Valid From</th>
+                            <th>Valid To</th>
+                            <th>Used</th>
+                            <th>Max Uses</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="props.vouchers" t-as="voucher" t-key="voucher.id">
+                            <tr>
+                                <td style="border-bottom: 1px black solid; padding: 10px 6px"><t t-esc="voucher.name"/></td>
+                                <td style="border-bottom: 1px black solid; padding: 10px 6px"><t t-esc="voucher.promo_code"/></td>
+                                <td style="border-bottom: 1px black solid; padding: 10px 6px"><t t-esc="voucher.rule_date_from"/></td>
+                                <td style="border-bottom: 1px black solid; padding: 10px 6px"><t t-esc="voucher.rule_date_to"/></td>
+                                <td style="border-bottom: 1px black solid; padding: 10px 6px"><t t-esc="voucher.pos_order_count"/></td>
+                                <td style="border-bottom: 1px black solid; padding: 10px 6px"><t t-esc="voucher.maximum_use_number"/></td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </main>
+            <footer class="footer">
+            </footer>
+        </div>
+        </div>
+    </t>
+</templates>
